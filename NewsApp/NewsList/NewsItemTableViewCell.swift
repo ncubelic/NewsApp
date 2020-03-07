@@ -6,6 +6,7 @@
 //  Copyright © 2020 Nikola. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class NewsItemTableViewCell: UITableViewCell {
@@ -45,7 +46,11 @@ class NewsItemTableViewCell: UITableViewCell {
     }
     
     func configure(with article: Article) {
-        thumbnailImageView.backgroundColor = .gray
+        if let urlToImage = article.urlToImage {
+            thumbnailImageView.kf.setImage(with: URL(string: urlToImage))
+        } else {
+            thumbnailImageView.image = nil
+        }
         titleLabel.text = article.title
         publishedAtLabel.text = DateFormatter.localizedString(from: article.publishedAt, dateStyle: .medium, timeStyle: .medium)
     }

@@ -43,10 +43,14 @@ class NewsDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = article.title
         setupViews()
     }
 
     private func setupViews() {
+        if let urlToImage = article.urlToImage {
+            thumbnailImageView.kf.setImage(with: URL(string: urlToImage))
+        }
         thumbnailImageView.frame = CGRect(origin: .zero, size: CGSize(width: view.frame.size.width, height: view.frame.size.width * (9 / 16)))
         tableView.tableHeaderView = thumbnailImageView
         view.addSubview(tableView)
