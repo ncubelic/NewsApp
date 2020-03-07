@@ -1,5 +1,5 @@
 S_APP_NAME = NewsApp
 S_APP_ICON = AppIcon
 S_BUNDLE_IDENTIFIER = hr.lioncode.NewsApp
-S_BASE_URL_PATH = https:/$()/
-S_NEWS_API_KEY =
+S_BASE_URL_PATH = https:/$()/newsapi.org
+S_NEWS_API_KEY = 4add450b546f409da7b2e40af2449ed6
