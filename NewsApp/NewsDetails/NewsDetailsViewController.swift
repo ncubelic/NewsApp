@@ -13,6 +13,8 @@ class NewsDetailsViewController: UIViewController {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultTableViewCell")
+        tableView.registerCell(ofType: TitleTableViewCell.self)
+        tableView.registerCell(ofType: AuthorTableViewCell.self)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
@@ -20,12 +22,14 @@ class NewsDetailsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         return tableView
     }()
     
     lazy var thumbnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
@@ -43,10 +47,16 @@ class NewsDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = article.title
+        title = article.source.name
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "externalLinkIcon"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(openLink))
         setupViews()
     }
 
+    @objc func openLink() {
+        guard let externalURL = URL(string: article.url) else { return }
+        UIApplication.shared.open(externalURL)
+    }
+    
     private func setupViews() {
         if let urlToImage = article.urlToImage {
             thumbnailImageView.kf.setImage(with: URL(string: urlToImage))
@@ -67,12 +77,20 @@ class NewsDetailsViewController: UIViewController {
 extension NewsDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
+            let cell = tableView.dequeueReusableCell(TitleTableViewCell.self, for: indexPath)
+            cell.configure(with: article.title)
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(AuthorTableViewCell.self, for: indexPath)
+            cell.configure(withAuthor: article.author ?? "Unknow author")
+            return cell
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultTableViewCell", for: indexPath)
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.text = article.content

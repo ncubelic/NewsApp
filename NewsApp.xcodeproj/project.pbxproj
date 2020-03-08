@@ -52,6 +52,12 @@
 		2D9DC19A241419AC000E2ACD /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC199241419AC000E2ACD /* NewsDetailsViewController.swift */; };
 		2D9DC19B241419AC000E2ACD /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC199241419AC000E2ACD /* NewsDetailsViewController.swift */; };
 		2D9DC19E2414235E000E2ACD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2D9DC19D2414235E000E2ACD /* Kingfisher */; };
+		2D9DC1A02415549A000E2ACD /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC19F2415549A000E2ACD /* TitleTableViewCell.swift */; };
+		2D9DC1A12415549A000E2ACD /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC19F2415549A000E2ACD /* TitleTableViewCell.swift */; };
+		2D9DC1A324155590000E2ACD /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC1A224155590000E2ACD /* UITableView+Register.swift */; };
+		2D9DC1A424155590000E2ACD /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC1A224155590000E2ACD /* UITableView+Register.swift */; };
+		2D9DC1A624155758000E2ACD /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC1A524155758000E2ACD /* AuthorTableViewCell.swift */; };
+		2D9DC1A724155758000E2ACD /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9DC1A524155758000E2ACD /* AuthorTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +100,9 @@
 		2D0F7998240FDC7800F914BE /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		2D9DC19524140B74000E2ACD /* NewsItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemTableViewCell.swift; sourceTree = "<group>"; };
 		2D9DC199241419AC000E2ACD /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		2D9DC19F2415549A000E2ACD /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		2D9DC1A224155590000E2ACD /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		2D9DC1A524155758000E2ACD /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +209,7 @@
 			children = (
 				2D0F7968240D7D0F00F914BE /* UIColor+App.swift */,
 				2D0F796B240D7FA800F914BE /* UIViewController+Child.swift */,
+				2D9DC1A224155590000E2ACD /* UITableView+Register.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				2D9DC199241419AC000E2ACD /* NewsDetailsViewController.swift */,
+				2D9DC19F2415549A000E2ACD /* TitleTableViewCell.swift */,
+				2D9DC1A524155758000E2ACD /* AuthorTableViewCell.swift */,
 			);
 			path = NewsDetails;
 			sourceTree = "<group>";
@@ -330,6 +342,7 @@
 			files = (
 				2D0F7992240FDA4100F914BE /* PreconditionFailed.swift in Sources */,
 				2D0F7977240FDA1E00F914BE /* NetworkConstants.swift in Sources */,
+				2D9DC1A624155758000E2ACD /* AuthorTableViewCell.swift in Sources */,
 				2D0F798A240FDA4100F914BE /* AlertModel.swift in Sources */,
 				2D0F7999240FDC7800F914BE /* NewsList.swift in Sources */,
 				2D0F797D240FDA1E00F914BE /* NetworkConfiguration.swift in Sources */,
@@ -342,10 +355,12 @@
 				2D0F7975240FDA1E00F914BE /* Resource.swift in Sources */,
 				2D0F797F240FDA1E00F914BE /* Data+NetworkManager.swift in Sources */,
 				2D9DC19624140B74000E2ACD /* NewsItemTableViewCell.swift in Sources */,
+				2D9DC1A02415549A000E2ACD /* TitleTableViewCell.swift in Sources */,
 				2D0F7996240FDB6000F914BE /* NewsService.swift in Sources */,
 				2D9DC19A241419AC000E2ACD /* NewsDetailsViewController.swift in Sources */,
 				2D0F798C240FDA4100F914BE /* UIAlertController+ErrorHandler.swift in Sources */,
 				2D0F798E240FDA4100F914BE /* Cause.swift in Sources */,
+				2D9DC1A324155590000E2ACD /* UITableView+Register.swift in Sources */,
 				2D0F795E240D7A3100F914BE /* AppFlowController.swift in Sources */,
 				2D0F7988240FDA4100F914BE /* ErrorReport.swift in Sources */,
 				2D0F793C240D793C00F914BE /* AppDelegate.swift in Sources */,
@@ -358,6 +373,7 @@
 			files = (
 				2D0F7993240FDA4100F914BE /* PreconditionFailed.swift in Sources */,
 				2D0F7978240FDA1E00F914BE /* NetworkConstants.swift in Sources */,
+				2D9DC1A724155758000E2ACD /* AuthorTableViewCell.swift in Sources */,
 				2D0F798B240FDA4100F914BE /* AlertModel.swift in Sources */,
 				2D0F799A240FDC7900F914BE /* NewsList.swift in Sources */,
 				2D0F797E240FDA1E00F914BE /* NetworkConfiguration.swift in Sources */,
@@ -370,10 +386,12 @@
 				2D0F7976240FDA1E00F914BE /* Resource.swift in Sources */,
 				2D0F7980240FDA1E00F914BE /* Data+NetworkManager.swift in Sources */,
 				2D9DC19724140B74000E2ACD /* NewsItemTableViewCell.swift in Sources */,
+				2D9DC1A12415549A000E2ACD /* TitleTableViewCell.swift in Sources */,
 				2D0F7997240FDB6000F914BE /* NewsService.swift in Sources */,
 				2D9DC19B241419AC000E2ACD /* NewsDetailsViewController.swift in Sources */,
 				2D0F798D240FDA4100F914BE /* UIAlertController+ErrorHandler.swift in Sources */,
 				2D0F798F240FDA4100F914BE /* Cause.swift in Sources */,
+				2D9DC1A424155590000E2ACD /* UITableView+Register.swift in Sources */,
 				2D0F7953240D793D00F914BE /* NewsAppTests.swift in Sources */,
 				2D0F7989240FDA4100F914BE /* ErrorReport.swift in Sources */,
 				2D0F795F240D7A3100F914BE /* AppFlowController.swift in Sources */,

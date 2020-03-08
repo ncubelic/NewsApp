@@ -60,6 +60,11 @@ class AppFlowController: UIViewController {
 
 extension AppFlowController: NewsListViewControllerDelegate {
     
+    func newsListViewController(_ controller: NewsListViewController, shouldSearchQueryString queryString: String) {
+        print("Here goes API request with query string.")
+        print("This is how I'll do it.")
+    }
+    
     func newsListViewController(_ controller: NewsListViewController, didSelect article: Article) {
         show(article)
     }

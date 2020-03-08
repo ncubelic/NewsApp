@@ -10,6 +10,7 @@ import UIKit
 
 protocol NewsListViewControllerDelegate: AnyObject {
     func newsListViewController(_ controller: NewsListViewController, didSelect article: Article)
+    func newsListViewController(_ controller: NewsListViewController, shouldSearchQueryString queryString: String)
 }
 
 class NewsListViewController: UIViewController {
@@ -27,6 +28,7 @@ class NewsListViewController: UIViewController {
     private var articles: [Article]
     private let searchController = UISearchController(searchResultsController: nil)
     weak var delegate: NewsListViewControllerDelegate?
+    var searchTask: DispatchWorkItem?
     
     init(articles: [Article]) {
         self.articles = articles
@@ -46,6 +48,7 @@ class NewsListViewController: UIViewController {
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
         }
+        searchController.searchResultsUpdater = self
         title = "News"
         view.backgroundColor = .background
         
@@ -89,3 +92,20 @@ extension NewsListViewController: UITableViewDataSource, UITableViewDelegate {
         return "Top Headlines"
     }
 }
+
+extension NewsListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        searchTask?.cancel()
+
+        let task = DispatchWorkItem { [weak self] in
+            guard let self = self else { return }
+            guard let queryString = searchController.searchBar.text else { return }
+            self.delegate?.newsListViewController(self, shouldSearchQueryString: queryString)
+        }
+        searchTask = task
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: task)
+    }
+}
+
